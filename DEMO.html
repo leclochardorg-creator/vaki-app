@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VAKI - Demo & Uputstvo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 2rem;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .logo {
+            width: 280px;
+            margin: 0 auto 1.5rem;
+        }
+        
+        h1 {
+            color: #525252;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 1.2rem;
+        }
+        
+        .section {
+            margin: 2.5rem 0;
+        }
+        
+        .section h2 {
+            color: #525252;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .icon {
+            font-size: 2rem;
+        }
+        
+        .steps {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 1rem 0;
+        }
+        
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .step-number {
+            background: #9ef05e;
+            color: #525252;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        .step-content h3 {
+            color: #525252;
+            margin-bottom: 0.5rem;
+        }
+        
+        .step-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .code-block {
+            background: #2d2d2d;
+            color: #9ef05e;
+            padding: 1.5rem;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .feature {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid #9ef05e;
+        }
+        
+        .feature h3 {
+            color: #525252;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .feature p {
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        .important {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .important h3 {
+            color: #856404;
+            margin-bottom: 0.5rem;
+        }
+        
+        .important p {
+            color: #856404;
+            line-height: 1.6;
+        }
+        
+        .demo-area {
+            background: #e8f5e9;
+            border: 2px dashed #4caf50;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+        
+        .demo-list {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            text-align: left;
+        }
+        
+        .demo-list pre {
+            color: #525252;
+            line-height: 1.8;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #9ef05e;
+            color: #525252;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0.5rem;
+            transition: transform 0.2s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #e0e0e0;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="public/icon.svg" alt="VAKI Logo" class="logo">
+            <h1>VAKI Shopping List</h1>
+            <p class="subtitle">PWA aplikacija za čekiranje namirnica - prihvata share iz bilo koje aplikacije!</p>
+        </div>
+
+        <div class="section">
+            <h2><span class="icon">🎯</span> Kako aplikacija radi</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Instaliraj na telefon</h3>
+                        <p>Otvori aplikaciju u Chrome browser-u na Android telefonu i izaberi "Add to Home Screen" ili "Install App"</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Kopiraj listu namirnica</h3>
+                        <p>Iz WhatsApp-a, Viber-a, Telegram-a, Notes-a ili bilo koje druge aplikacije gde imaš spisak namirnica</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Share na VAKI</h3>
+                        <p>Selektuj tekst i klikni na "Share" dugme. Iz liste aplikacija izaberi VAKI</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Čekiraj dok kupuješ!</h3>
+                        <p>VAKI će parsirati listu i prikazati sve stavke sa checkbox-evima. Čekiraj šta si uzeo/uzela!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><span class="icon">📋</span> Primeri formata liste</h2>
+            <p>Aplikacija prepoznaje različite formate:</p>
+            <div class="demo-area">
+                <div class="demo-list">
+                    <pre>2 hleba
+1 jogurt
+1 mleko
+500g sira
+- jaja
+• paradajz
+1. paprika
+250g maslaca</pre>
+                </div>
+                <p>Sve ove formate VAKI parsira i pretvara u čekirajuće stavke!</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><span class="icon">✨</span> Ključne funkcionalnosti</h2>
+            <div class="feature-grid">
+                <div class="feature">
+                    <h3>📱 Native Share Target</h3>
+                    <p>Prihvata share iz bilo koje aplikacije preko Android Share menija</p>
+                </div>
+                
+                <div class="feature">
+                    <h3>✅ Animirani Check</h3>
+                    <p>Check mark sa smooth animacijom - fade in, scale i draw efekat</p>
+                </div>
+                
+                <div class="feature">
+                    <h3>📊 Progress Tracking</h3>
+                    <p>Vidi koliko si čekirao/čekirala u real-time (X/Y stavki)</p>
+                </div>
+                
+                <div class="feature">
+                    <h3>💾 Auto-Save</h3>
+                    <p>Lista se automatski čuva u Local Storage</p>
+                </div>
+                
+                <div class="feature">
+                    <h3>🎉 Celebration</h3>
+                    <p>Kada čekiraš sve stavke, dobićeš celebration poruku!</p>
+                </div>
+                
+                <div class="feature">
+                    <h3>📴 Offline Ready</h3>
+                    <p>Radi i bez internet konekcije - puna PWA podrška</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><span class="icon">🚀</span> Instalacija i pokretanje</h2>
+            <div class="code-block">
+# Instaliraj dependencies<br>
+npm install<br>
+<br>
+# Pokreni development server<br>
+npm run dev<br>
+<br>
+# Build za produkciju<br>
+npm run build
+            </div>
+        </div>
+
+        <div class="important">
+            <h3>⚠️ Važne napomene</h3>
+            <p><strong>Share Target API zahteva:</strong></p>
+            <ul style="margin-left: 1.5rem; margin-top: 0.5rem; line-height: 1.8;">
+                <li>Aplikacija mora biti instalirana (Add to Home Screen)</li>
+                <li>Mora biti hostovana na HTTPS (osim localhost-a)</li>
+                <li>Service Worker mora biti registrovan</li>
+                <li>Trenutno radi samo na Android/Chrome</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2><span class="icon">🎨</span> Dizajn</h2>
+            <div class="feature-grid">
+                <div class="feature">
+                    <h3>Boje</h3>
+                    <p><strong>Glavna:</strong> #525252 (tamno siva)<br>
+                    <strong>Accent:</strong> #9ef05e (svetlo zelena)</p>
+                </div>
+                
+                <div class="feature">
+                    <h3>Logo</h3>
+                    <p>Originalni VAKI SVG logo sa animated check mark elementom</p>
+                </div>
+                
+                <div class="feature">
+                    <h3>Responsive</h3>
+                    <p>Optimizovano za mobilne uređaje, ali radi i na desktop-u</p>
+                </div>
+                
+                <div class="feature">
+                    <h3>Animacije</h3>
+                    <p>Smooth check mark, fade in/out, bounce efekti</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><span class="icon">🛠</span> Tehnički stack</h2>
+            <ul style="margin-left: 2rem; line-height: 2;">
+                <li><strong>React 18</strong> - UI framework</li>
+                <li><strong>Vite</strong> - Build tool</li>
+                <li><strong>Web Share Target API</strong> - Za primanje shared content-a</li>
+                <li><strong>Service Worker</strong> - PWA i offline funkcionalnost</li>
+                <li><strong>Local Storage</strong> - Persistencija podataka</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p><strong>VAKI</strong> - Lista namirnica koja prati vaš napredak</p>
+            <p style="margin-top: 0.5rem;">Razvijeno sa ❤️ za lakšu kupovinu</p>
+        </div>
+    </div>
+</body>
+</html>

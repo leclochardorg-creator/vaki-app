@@ -1,0 +1,28 @@
+{
+  "name": "VAKI",
+  "short_name": "VAKI",
+  "description": "Shopping list tracker - deli listu namirnica i čekiraj šta si uzeo/uzela",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#525252",
+  "theme_color": "#525252",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "share_target": {
+    "action": "/share",
+    "method": "GET",
+    "enctype": "application/x-www-form-urlencoded",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  }
+}

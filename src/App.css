@@ -1,0 +1,394 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #525252;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  max-width: 640px;
+  margin: 0 auto;
+  background-color: #525252;
+  position: relative;
+}
+
+/* ===== LOGO U GORNJEM LEVOM UGLU ===== */
+.logo-top-left {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 100;
+}
+
+.small-logo {
+  height: 40px;
+  width: auto;
+}
+
+/* ===== EKRANI 1-4: ANIMACIJE LINIJA ===== */
+.animation-screen {
+  justify-content: center;
+  align-items: center;
+}
+
+.line-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Horizontalna linija (Ekrani 1-2) */
+.horizontal-line {
+  position: absolute;
+  top: 5rem;
+  left: 0;
+  height: 2px;
+  background: #9ef05e;
+  width: 0;
+  animation: drawHorizontal 2s ease-out forwards;
+}
+
+@keyframes drawHorizontal {
+  to {
+    width: 100%;
+  }
+}
+
+.horizontal-line.complete {
+  width: 100%;
+  animation: none;
+}
+
+/* Vertikalna linija (Ekrani 3-4) */
+.vertical-line {
+  position: absolute;
+  top: 5rem;
+  right: 0;
+  width: 2px;
+  background: #9ef05e;
+  height: 0;
+  animation: drawVertical 1.5s ease-out forwards;
+}
+
+@keyframes drawVertical {
+  to {
+    height: calc(100vh - 5rem);
+  }
+}
+
+/* ===== EKRANI 5-6: AKTIVNA LISTA ===== */
+.active-screen {
+  padding: 0;
+}
+
+/* Gornja linija */
+.top-line {
+  width: 100%;
+  height: 2px;
+  background: #9ef05e;
+  position: absolute;
+  top: 5rem;
+  left: 0;
+  animation: fadeIn 0.3s ease-in;
+}
+
+/* Donja linija */
+.bottom-line {
+  width: 100%;
+  height: 2px;
+  background: #9ef05e;
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Empty state (Ekran 3-4) */
+.empty-state {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 7rem;
+  margin-bottom: 4rem;
+}
+
+.empty-state p {
+  font-size: 1.1rem;
+  color: #e0e0e0;
+  margin: 0.5rem 0;
+}
+
+.empty-state .hint {
+  font-size: 0.9rem;
+  color: #9ef05e;
+  margin-top: 1rem;
+}
+
+/* Lista stavki (Ekrani 5-6) */
+.items-list {
+  flex: 1;
+  padding: 2rem 1.5rem;
+  margin-top: 7rem;
+  margin-bottom: 4rem;
+  overflow-y: auto;
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  margin: 0.8rem 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: itemFadeIn 0.4s ease-out backwards;
+}
+
+.list-item:nth-child(1) { animation-delay: 0.1s; }
+.list-item:nth-child(2) { animation-delay: 0.2s; }
+.list-item:nth-child(3) { animation-delay: 0.3s; }
+.list-item:nth-child(4) { animation-delay: 0.4s; }
+.list-item:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes itemFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.list-item:hover {
+  transform: translateX(5px);
+}
+
+.list-item.checked .item-text {
+  color: #9ef05e;
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+}
+
+/* Kružni checkbox */
+.checkbox {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #9ef05e;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.list-item.checked .checkbox {
+  background: #9ef05e;
+  border-color: #9ef05e;
+}
+
+/* Check mark */
+.checkmark {
+  color: #525252;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1;
+  animation: checkmarkPop 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes checkmarkPop {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(-45deg);
+  }
+  50% {
+    transform: scale(1.3) rotate(5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.item-text {
+  font-size: 1.1rem;
+  color: #ffffff;
+  line-height: 1.4;
+  transition: all 0.3s ease;
+}
+
+/* ===== EKRAN 7: COMPLETION SA BACK DUGMETOM ===== */
+.completion-screen {
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.completion-logo-container {
+  width: 100%;
+  max-width: 350px;
+  margin-bottom: 3rem;
+  position: relative;
+  aspect-ratio: 494.7 / 181.2;
+}
+
+.completion-logo-base {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.completion-checkmark {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: checkmarkSlideIn 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+@keyframes checkmarkSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-60px) scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0) scale(1.15);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* BACK dugme (Ekran 7) */
+.back-btn {
+  background: transparent;
+  border: 2px solid #9ef05e;
+  color: #9ef05e;
+  padding: 1rem 2.5rem;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.back-btn:hover {
+  background: #9ef05e;
+  color: #525252;
+  transform: translateX(-5px);
+}
+
+.back-btn:active {
+  transform: scale(0.95);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+  .logo-top-left {
+    top: 1rem;
+    left: 1rem;
+  }
+
+  .small-logo {
+    height: 32px;
+  }
+
+  .top-line {
+    top: 4rem;
+  }
+
+  .items-list {
+    margin-top: 6rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .list-item {
+    padding: 0.8rem;
+  }
+
+  .item-text {
+    font-size: 1rem;
+  }
+
+  .checkbox {
+    width: 28px;
+    height: 28px;
+  }
+
+  .checkmark {
+    font-size: 18px;
+  }
+
+  .completion-logo-container {
+    max-width: 280px;
+  }
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #9ef05e;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8dd954;
+}

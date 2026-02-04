@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 494.7 181.2">
+  <!-- Generator: Adobe Illustrator 29.0.1, SVG Export Plug-In . SVG Version: 2.1.0 Build 192)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #525252;
+      }
+
+      .st1 {
+        isolation: isolate;
+      }
+
+      .st2 {
+        opacity: .4;
+      }
+
+      .st3 {
+        fill: #9ef05e;
+      }
+    </style>
+  </defs>
+  <rect class="st0" y="0" width="494.7" height="181.2"/>
+  <g>
+    <g class="st2">
+      <image class="st1" width="252" height="189" transform="translate(-14.8 6.3)" xlink:href="../vaki-logo-1.png"/>
+    </g>
+    <polygon class="st3" points="199.8 32.6 84.9 154.5 20.6 92.6 44.3 68.4 84.5 107 154 32.6 199.8 32.6"/>
+  </g>
+</svg>
